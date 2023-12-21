@@ -1,23 +1,19 @@
-# Light studio
+# React Iron - React.js dashboard and boilerplate for desktop/web/embedded/mobile apps
 
-Sample client for light studio
+A complete framework for building applications using react.
 
-## Invting someone to the workspace
+## DEMO https://torabian.github.io/react-iron
 
-When we are inviting someone into a team, we need to test if the follow supports these scenarios:
+* Based on react.js and typescript
+* No redux crap
+* Uses react-query and context api in it's core
+* low dependecies, bootstrap 5 (optional)
+* Batteries included, datatable, menu actions
+* Build desktop apps using Go Wails ( or electron.js )
+* Build mobile app with cordova
+* Small output and optimized for embedded devices (500K max)
 
-1- User has no account at all in our system. We send an email, or phone number to them, and expect them to signup
-into the root system, and then when they've created account, we add them into the invited workspace
 
-1.1 In some scenarios, we want to force the user to only have be able to join with very specific passport
-1.1 User might get the invitation via phone, or mail or other means, but they might be able to signup
-using their own interested email or phone number, in this case invitation is a code only, to join to a workspace,
-for a user which does not exists.
+## Contribution
 
-2- User has an account in the system already.
-2-1 Make sure the user can come to login screen, and when he does, he will see the invites to be accepted
-2-1 If he is logged in, must see a notification, and we need to redirect him into invitations screen, and he can accept that invitation
-
-https://stackoverflow.com/questions/36601367/json-field-set-to-null-vs-field-not-there
-
-https://github.com/inconshreveable/mousetrap
+Please open a pull request :)
