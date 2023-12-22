@@ -108,7 +108,7 @@ export const CommonListManager = ({
     });
 
   const udf = useDatatableFiltering({
-    urlMask,
+    urlMask: "",
     submitDelete: delHook?.submit,
     onRecordsDeleted: onRecordsDeleted
       ? () => onRecordsDeleted({ queryClient })

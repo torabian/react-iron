@@ -63,8 +63,8 @@ export function ReactiveSearch() {
         value={value}
         placeholder={t.reactiveSearch.placeholder}
         onInput={(e) => {
-          setValue(e.target.value);
-          oninput(e.target.value);
+          setValue((e.target as any).value);
+          oninput((e.target as any).value);
         }}
         className="form-control"
       />

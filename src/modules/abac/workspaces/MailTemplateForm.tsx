@@ -18,7 +18,7 @@ export const MailTemplateForm = ({
   return (
     <>
       <PageSection title={t.wokspaces.mailServerConfiguration}>
-        <EmailProviderEditForm form={form} />
+        <EmailProviderEditForm form={form as any} />
       </PageSection>
       <PageSection title={t.wokspaces.emailSendingConfiguration}>
         <p>{t.wokspaces.emailSendingConfigurationHint}</p>

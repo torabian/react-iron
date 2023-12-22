@@ -1,4 +1,4 @@
-import { Menu } from "@/definitions/common";
+import { MenuItem } from "@/definitions/common";
 import { useT } from "@/hooks/useT";
 import { UploaderStatsCard } from "@/modules/drive/UploaderStatsCard";
 import { Outlet } from "react-router-dom";
@@ -40,8 +40,8 @@ const Layout = ({
   sidebarMenu,
 }: {
   children?: React.ReactNode;
-  sidebarMenu?: Menu | Menu[];
-  navbarMenu?: Menu;
+  sidebarMenu?: MenuItem | MenuItem[];
+  navbarMenu?: MenuItem;
 }) => {
   const t = useT();
   const { result, phrase, reset } = useContext(ReactiveSearchContext);
@@ -63,7 +63,7 @@ const Layout = ({
       <ForcedAuthenticated>
         <div style={{ display: "flex" }}>
           {sidebarMenu && <Sidebar menu={sidebarMenu} />}
-          <Navbar menu={navbarMenu || []} />
+          <Navbar menu={navbarMenu} />
           <div className="content-section">
             {onSearch ? (
               <div className="content-container">

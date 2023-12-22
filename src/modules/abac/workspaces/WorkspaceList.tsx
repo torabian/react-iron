@@ -1,14 +1,10 @@
-import { screens } from "@/apps/academy/screens";
-import { useDatatableFiltering } from "@/hooks/useDatatableFiltering";
 import { useT } from "@/hooks/useT";
 
-import { useGetWorkspaces } from "src/sdk/fireback/modules/workspaces/useGetWorkspaces";
-
+import { CommonRowDetail } from "@/components/detail-table/DetailTable";
 import { CommonListManager } from "@/components/entity-manager/CommonListManager";
+import { useGetCteWorkspaces } from "@/sdk/fireback/modules/workspaces/useGetCteWorkspaces";
 import { WorkspaceNavigationTools } from "src/sdk/fireback/modules/workspaces/workspace-navigation-tools";
 import { columns } from "./WorkspaceColumns";
-import { CommonRowDetail } from "@/components/detail-table/DetailTable";
-import { useGetCteWorkspaces } from "@/sdk/fireback/modules/workspaces/useGetCteWorkspaces";
 
 export const WorkspaceList = () => {
   const t = useT();

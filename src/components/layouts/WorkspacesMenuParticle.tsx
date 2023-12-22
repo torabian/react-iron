@@ -1,4 +1,4 @@
-import { MacTagsColor, Menu } from "@/definitions/common";
+import { MacTagsColor, MenuItem } from "@/definitions/common";
 import { UserRoleWorkspaceEntity } from "src/sdk/fireback";
 import { RemoteQueryContext } from "src/sdk/fireback/core/react-tools";
 import { useGetUserRoleWorkspaces } from "src/sdk/fireback/modules/workspaces/useGetUserRoleWorkspaces";
@@ -28,14 +28,14 @@ export function WorkspacesMenuParticle({ onClick }: { onClick: () => void }) {
     }
   }, [queryWorkspaces.data?.data?.items]);
 
-  const menus: Menu[] = [];
+  const menus: MenuItem[] = [];
 
   const groupped = groupBy(
     queryWorkspaces.data?.data?.items || [],
     (t) => t.workspaceId
   );
 
-  const otherMenu: Menu = {
+  const otherMenu: any = {
     name: t.wokspaces.sidetitle,
     children: [],
   };
@@ -65,7 +65,7 @@ export function WorkspacesMenuParticle({ onClick }: { onClick: () => void }) {
             label: urw.role?.name || t.unnamedRole,
           };
         }),
-      });
+      } as any);
     } else {
       otherMenu.children.push({
         key: urws[0].uniqueId,
@@ -94,7 +94,7 @@ export function WorkspacesMenuParticle({ onClick }: { onClick: () => void }) {
 
   return (
     <>
-      {menus.map((menu) => {
+      {menus.map((menu: any) => {
         return <MenuParticle onClick={onClick} key={menu.name} menu={menu} />;
       })}
     </>

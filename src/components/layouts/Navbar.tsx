@@ -1,4 +1,4 @@
-import { Menu } from "@/definitions/common";
+import { MenuItem } from "@/definitions/common";
 import { getOS } from "@/hooks/useHtmlClass";
 import { useRouter } from "@/Router";
 import classNames from "classnames";
@@ -12,7 +12,7 @@ import { source } from "@/helpers/source";
 import { osResources } from "../mulittarget/multitarget-resource";
 import { ReactiveSearch } from "../reactive-search/ReactiveSearch";
 
-function Navbar({ menu }: { menu: Menu }) {
+function Navbar({ menu }: { menu?: MenuItem }) {
   const router = useRouter();
   const { toggleSidebar } = useUiState();
 

@@ -5,7 +5,7 @@ export function source(uri: string) {
 
   if (uri.startsWith("$")) {
     // console.log(88, uri, uri.substr(1), osResources[uri.substr(1)]);
-    return prefix + osResources[uri.substr(1)];
+    return prefix + (osResources as any)[uri.substr(1)];
   }
 
   if (!prefix) {

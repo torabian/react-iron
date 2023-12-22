@@ -6,14 +6,11 @@ import { usePageTitle } from "@/components/page-title/PageTitle";
 import { useCommonEntityManager } from "@/hooks/useCommonEntityManager";
 import { Formik, FormikHelpers, FormikProps } from "formik";
 
-import { ProductPlanEntity } from "src/sdk/academy";
-
-import { useKeyPress } from "@/hooks/useKeyPress";
+import { KeyboardAction } from "@/definitions/definitions";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { IResponse } from "src/sdk/fireback";
 import { QueryErrorView } from "../error-view/QueryError";
-import { KeyboardAction } from "@/definitions/definitions";
 
 export interface CommonEntityManagerProps<T> {
   data?: T | null;
@@ -55,7 +52,7 @@ export const CommonEntityManager = ({
   onSuccessPatchOrPost,
 }: CommonEntityManagerProps<any>) => {
   const { router, isEditing, locale, formik } = useCommonEntityManager<
-    Partial<ProductPlanEntity>
+    Partial<any>
   >({
     data,
   });
@@ -80,10 +77,7 @@ export const CommonEntityManager = ({
     );
   }, [postHook?.isLoading, patchHook?.isLoading]);
 
-  const onSubmit = (
-    values: Partial<ProductPlanEntity>,
-    d: FormikHelpers<Partial<ProductPlanEntity>>
-  ) => {
+  const onSubmit = (values: Partial<any>, d: FormikHelpers<Partial<any>>) => {
     if (beforeSubmit) {
       values = beforeSubmit(values);
     }
@@ -98,13 +92,7 @@ export const CommonEntityManager = ({
         if (onSuccessPatchOrPost) {
           onSuccessPatchOrPost(response);
         } else if (onFinishUriResolver) {
-          router.goBackOrDefault(
-            onFinishUriResolver(response, locale),
-            onFinishUriResolver(response, locale),
-            {
-              shallow: true,
-            }
-          );
+          router.goBackOrDefault(onFinishUriResolver(response, locale));
         } else {
           toast("Done", { type: "success" });
         }
@@ -130,7 +118,7 @@ export const CommonEntityManager = ({
       initialValues={{}}
       onSubmit={onSubmit}
     >
-      {(form: FormikProps<Partial<ProductPlanEntity>>) => (
+      {(form: FormikProps<Partial<any>>) => (
         <form
           onSubmit={(e) => {
             e.preventDefault();

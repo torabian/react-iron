@@ -1,4 +1,3 @@
-import { QuestionEntity } from "src/sdk/academy";
 import { IResponse } from "src/sdk/fireback";
 import { FormikProps } from "formik";
 
@@ -120,19 +119,6 @@ export interface EntityFormProps<T> {
   };
   form: FormikProps<Partial<T>>;
   isEditing?: boolean;
-}
-
-export interface CrossWordVisualItem {
-  startIndice: string;
-  startText: string;
-  parentQuestionId: string;
-  startPreview: boolean;
-  endIndice: string;
-  endText: string;
-  endPreview: boolean;
-  answerId: string;
-  questionId: string;
-  question: QuestionEntity;
 }
 
 export type QuestionAnswerState = "correct" | "incorrect" | "blank";

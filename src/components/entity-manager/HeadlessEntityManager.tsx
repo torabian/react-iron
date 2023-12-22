@@ -1,11 +1,6 @@
-import { useCommonCrudActions } from "@/components/action-menu/ActionMenu";
-import { usePageTitle } from "@/components/page-title/PageTitle";
 import { useCommonEntityManager } from "@/hooks/useCommonEntityManager";
 import { Formik, FormikHelpers, FormikProps } from "formik";
 
-import { ProductPlanEntity } from "src/sdk/academy";
-
-import { useKeyPress } from "@/hooks/useKeyPress";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { IResponse } from "src/sdk/fireback";
@@ -45,7 +40,7 @@ export const HeadlessEntityManager = ({
   onSuccessPatchOrPost,
 }: HeadlessEntityManagerProps<any>) => {
   const { router, isEditing, locale, formik } = useCommonEntityManager<
-    Partial<ProductPlanEntity>
+    Partial<any>
   >({
     data,
   });
@@ -66,10 +61,7 @@ export const HeadlessEntityManager = ({
     );
   }, [postHook?.isLoading, patchHook?.isLoading]);
 
-  const onSubmit = (
-    values: Partial<ProductPlanEntity>,
-    d: FormikHelpers<Partial<ProductPlanEntity>>
-  ) => {
+  const onSubmit = (values: Partial<any>, d: FormikHelpers<Partial<any>>) => {
     if (beforeSubmit) {
       values = beforeSubmit(values);
     }
@@ -84,13 +76,7 @@ export const HeadlessEntityManager = ({
         if (onSuccessPatchOrPost) {
           onSuccessPatchOrPost(response);
         } else if (onFinishUriResolver) {
-          router.goBackOrDefault(
-            onFinishUriResolver(response, locale),
-            onFinishUriResolver(response, locale),
-            {
-              shallow: true,
-            }
-          );
+          router.goBackOrDefault(onFinishUriResolver(response, locale));
         } else {
           toast("Done", { type: "success" });
         }
@@ -109,7 +95,7 @@ export const HeadlessEntityManager = ({
       initialValues={{}}
       onSubmit={onSubmit}
     >
-      {(form: FormikProps<Partial<ProductPlanEntity>>) => (
+      {(form: FormikProps<Partial<any>>) => (
         <form
           onSubmit={(e) => {
             e.preventDefault();

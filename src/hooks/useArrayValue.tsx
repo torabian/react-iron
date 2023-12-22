@@ -4,7 +4,7 @@ export function useArrayValue<T = any>() {
   const [items, setItems] = useState<T[]>([]);
 
   const append = () => {
-    setItems((items) => {
+    setItems((items: any) => {
       return [...items, {}];
     });
   };
@@ -20,7 +20,7 @@ export function useArrayValue<T = any>() {
     });
   };
 
-  const update = (item, index: number) => {
+  const update = (item: T, index: number) => {
     setItems((data) => {
       return data.map((l, index2) => {
         if (index === index2) {

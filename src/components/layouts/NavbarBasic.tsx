@@ -1,9 +1,9 @@
-import { Menu } from "@/definitions/common";
+import { MenuItem } from "@/definitions/common";
 import classNames from "classnames";
 import React from "react";
 import ActiveLink from "../link/ActiveLink";
 
-function Navbar({ menu }: { menu: Menu }) {
+function Navbar({ menu }: { menu?: MenuItem }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
